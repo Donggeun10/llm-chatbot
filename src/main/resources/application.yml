@@ -1,0 +1,39 @@
+logging:
+    level:
+        root: info
+        dev.langchain4j: info
+        dev.ai4j.openai4j: info
+        com.example.chatbot: debug
+
+spring:
+    application:
+        name: chatbot
+    datasource:
+        driverClassName: org.h2.Driver
+        url: jdbc:h2:mem:chatbotDisk;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=3000
+        username: sa
+        password: sa
+        hikari:
+            pool-name: disk-pool
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+    h2:
+        console:
+            enabled: false
+            path: /h2-console
+    threads:
+        virtual:
+            enabled: true
+
+application:
+    pdf: src/test/resources/pdf
+
+langchain4j:
+    ollama:
+        chat-model:
+            base-url: http://172.27.6.8:11435
+            model-name: llama3.2
+            log-requests: true
+            log-responses: true
