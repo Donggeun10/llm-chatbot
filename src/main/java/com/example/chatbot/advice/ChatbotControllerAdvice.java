@@ -22,6 +22,7 @@ public class ChatbotControllerAdvice {
 		return new ErrorResponse("chatbot error");
 	}
 
+	// properly not working 2024-11-18
 	@ExceptionHandler(NotFoundMemberException.class)
 	public void notFoundException(NotFoundMemberException notFoundMemberException) {
 		log.error(DataUtil.makeErrorLogMessage(notFoundMemberException));

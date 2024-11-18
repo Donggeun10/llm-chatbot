@@ -29,12 +29,12 @@ public class AssistantConfiguration {
     }
 
     @Bean
-    public EmbeddingStoreContentRetriever contentRetriever(EmbeddingStore embeddingStore) {
+    public EmbeddingStoreContentRetriever contentRetriever(EmbeddingStore<TextSegment> embeddingStore) {
         return EmbeddingStoreContentRetriever.from(embeddingStore);
     }
 
     @Bean
-    public EmbeddingStore embeddingStore(List<Document> documents) {
+    public EmbeddingStore<TextSegment> embeddingStore(List<Document> documents) {
         InMemoryEmbeddingStore<TextSegment> embeddingStore = new InMemoryEmbeddingStore<>();
         EmbeddingStoreIngestor.ingest(documents, embeddingStore);
         return embeddingStore;
@@ -43,7 +43,6 @@ public class AssistantConfiguration {
     @Bean
     public List<Document> documents() {
         PathMatcher pathMatcher = FileSystems.getDefault().getPathMatcher("glob:*.pdf");
-        List<Document> documents = FileSystemDocumentLoader.loadDocuments(pdfPath, pathMatcher);
-        return documents;
+        return FileSystemDocumentLoader.loadDocuments(pdfPath, pathMatcher);
     }
 }

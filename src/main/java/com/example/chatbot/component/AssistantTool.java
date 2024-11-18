@@ -2,11 +2,11 @@ package com.example.chatbot.component;
 
 import com.example.chatbot.domain.MembersResponse;
 import com.example.chatbot.entity.Member;
+import com.example.chatbot.exception.NotFoundMemberException;
 import com.example.chatbot.repository.MemberRepository;
 import dev.langchain4j.agent.tool.P;
 import dev.langchain4j.agent.tool.Tool;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -33,7 +33,7 @@ public class AssistantTool {
         if(memberOpt.isPresent()) {
             return new MembersResponse(List.of(memberOpt.get()));
         }else{
-            throw new NoSuchElementException(String.format("Member(%s) not found", name));
+            throw new NotFoundMemberException(String.format("Member(%s) not found", name));
         }
     }
 
