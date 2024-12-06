@@ -40,7 +40,7 @@ class AssistantControllerTest {
             .perform(
                 post("/chat/"+uuid) // url
                     .contentType(MediaType.APPLICATION_JSON_VALUE)
-                    .content("can you show me clinic price and list of members.")
+                    .content("can you show me clinic price as grid and provide list of members as json.")
             )
             .andDo(print()) // api 수행내역 로그 출력
             .andExpect(status().isOk()); // response status 200 검증

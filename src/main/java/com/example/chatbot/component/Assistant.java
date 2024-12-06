@@ -6,10 +6,13 @@ import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.spring.AiService;
 import java.util.UUID;
 
-@AiService(chatMemory = "chatMemory", tools = {"AssistantTool"}, contentRetriever = "contentRetriever")
+@AiService(contentRetriever = "contentRetriever")
 public interface Assistant {
 
     @SystemMessage(fromResource = "/prompts/system.st")
     String chat(@MemoryId UUID memoryId, @UserMessage String userMessage);
+
+    @SystemMessage("You are a polite assistant")
+    String chatVision(@MemoryId UUID memoryId, @UserMessage String userMessage);
 
 }

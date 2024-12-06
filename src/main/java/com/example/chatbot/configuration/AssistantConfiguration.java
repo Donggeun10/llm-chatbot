@@ -24,7 +24,7 @@ public class AssistantConfiguration {
     private String pdfPath;
 
     @Bean
-    public ChatMemoryProvider chatMemory() {
+    public ChatMemoryProvider chatMemoryProvider() {
         return memoryId -> MessageWindowChatMemory.withMaxMessages(10);
     }
 

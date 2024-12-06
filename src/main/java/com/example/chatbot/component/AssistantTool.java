@@ -37,5 +37,17 @@ public class AssistantTool {
         }
     }
 
+    @Tool("register member's information: member_name, phone_number, pets, password")
+    public void registerMember(@P("member name") String memberName, @P("phone number") String phoneNumber, @P("pet") String pets, @P("password") String pwd) {
+        Member member = Member.builder()
+            .memberName(memberName)
+            .phoneNumber(phoneNumber)
+            .password(pwd)
+            .pets(pets)
+            .build();
+
+        memberRepository.save(member);
+    }
+
 }
 
