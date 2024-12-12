@@ -10,6 +10,7 @@ https://javaetmoi.com/2024/11/integrer-un-chatbot-dans-une-webapp-java-avec-lang
 ## Frameworks
 - Spring Boot
 - Langchain4j
+- Vaadin Hilla React (Frontend)
 - Lombok
 - JUnit
 

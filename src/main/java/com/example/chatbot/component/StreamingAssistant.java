@@ -2,17 +2,15 @@ package com.example.chatbot.component;
 
 import dev.langchain4j.service.MemoryId;
 import dev.langchain4j.service.SystemMessage;
+import dev.langchain4j.service.TokenStream;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.spring.AiService;
 import java.util.UUID;
 
-@AiService
-public interface Assistant {
+@AiService(streamingChatModel = "ollamaStreamingChatModel")
+public interface StreamingAssistant {
 
     @SystemMessage(fromResource = "/prompts/system.st")
-    String chat(@MemoryId UUID memoryId, @UserMessage String userMessage);
-
-    @SystemMessage("You are a polite assistant")
-    String chatVision(@MemoryId UUID memoryId, @UserMessage String userMessage);
+    TokenStream chat(@MemoryId UUID memoryId, @UserMessage String userMessage);
 
 }

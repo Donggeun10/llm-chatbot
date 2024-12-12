@@ -4,8 +4,11 @@ logging:
         dev.langchain4j: info
         dev.ai4j.openai4j: info
         com.example.chatbot: debug
+        com.vaadin : info
 
 spring:
+    profiles:
+        active: exaone
     application:
         name: chatbot
     datasource:
@@ -29,11 +32,3 @@ spring:
 
 application:
     pdf: src/test/resources/pdf
-
-langchain4j:
-    ollama:
-        chat-model:
-            base-url: http://172.27.6.8:11435
-            model-name: llama3.2
-            log-requests: true
-            log-responses: true
