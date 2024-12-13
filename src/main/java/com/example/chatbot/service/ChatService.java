@@ -21,6 +21,7 @@ public class ChatService {
         Sinks.Many<String> sink = Sinks.many().unicast().onBackpressureBuffer();
 
         streamingAssistant.chat(user, message)
+            .onRetrieved(source -> log.info("Retrieved source: {}", source))
             .onNext(sink::tryEmitNext)
             .onComplete(c -> sink.tryEmitComplete())
             .onError(sink::tryEmitError)

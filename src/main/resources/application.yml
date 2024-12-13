@@ -1,7 +1,7 @@
 logging:
     level:
         root: info
-        dev.langchain4j: info
+        dev.langchain4j: debug
         dev.ai4j.openai4j: info
         com.example.chatbot: debug
         com.vaadin : info
@@ -32,3 +32,6 @@ spring:
 
 application:
     pdf: src/test/resources/pdf
+
+vaadin:
+    exclude-urls: /swagger-ui.html,/swagger-ui/**

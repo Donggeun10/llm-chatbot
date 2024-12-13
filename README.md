@@ -4,8 +4,11 @@
 https://javaetmoi.com/2024/11/integrer-un-chatbot-dans-une-webapp-java-avec-langchain4j/
 
 ## Introduction
-- Chatbot Backend System have been using Langchain4j to communicate with the backend Ollama local AI system
-- In order to generate responses to users, application use Langchain4j Tool(Function Calling) and RAG (Retrieval Augmented Generation/ https://docs.langchain4j.dev/tutorials/rag#easy-rag).
+- Chatbot Backend System have been using Spring boot with Langchain4j to communicate with the backend Ollama local AI system docker container.
+- In order to enhance answer, application is used Langchain4j Tool(Function Calling) and RAG (Retrieval Augmented Generation/https://docs.langchain4j.dev/tutorials/rag#easy-rag).
+- Because Some models such as EXAONE are not supported Tools.
+- Queries should be routed to the appropriate RAG document.
+- However, Combining Tools and RAG is hard to develop. so, it is not fully implemented yet. It is under development.(12/18/2024)
 
 ## Frameworks
 - Spring Boot

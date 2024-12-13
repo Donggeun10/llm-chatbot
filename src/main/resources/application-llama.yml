@@ -3,7 +3,7 @@ langchain4j:
     ollama:
         embedding-model:
             base-url: http://172.27.6.8:11435
-            model-name: llama3.2
+            model-name: nomic-embed-text
             log-requests: true
             log-responses: true
             timeout: 600000
