@@ -75,7 +75,12 @@ public class RAGConfiguration {
     public List<Document> documents() {
 
         PathMatcher pathMatcher = FileSystems.getDefault().getPathMatcher("glob:*.pdf");
-        return FileSystemDocumentLoader.loadDocuments(Paths.get(pdfPath, "cds"), pathMatcher, new ApachePdfBoxDocumentParser());
+        List<Document> documents = FileSystemDocumentLoader.loadDocuments(Paths.get(pdfPath, "cds"), pathMatcher, new ApachePdfBoxDocumentParser());
+        log.info("Loaded {} documents", documents.size());
+        for(Document document : documents) {
+            document.metadata().put("feature", "spring boot cds");
+        }
+        return documents;
     }
 
     @Bean

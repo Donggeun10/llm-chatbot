@@ -1,0 +1,27 @@
+FROM ubuntu:22.04
+LABEL authors="leedg17"
+
+RUN apt update  \
+    && apt install -y git python3 python3-pip vim
+
+## ubuntu
+RUN addgroup appgroup && adduser appuser && adduser appuser appgroup
+### alpine
+##RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+
+WORKDIR /home/appuser
+RUN git clone https://github.com/ggerganov/llama.cpp.git
+RUN cd llama.cpp  \
+    && pip install -r requirements.txt
+
+WORKDIR /home/appuser
+RUN mkdir -p safetensors/dongjin-kr_ko-reranker
+COPY ollama-model/safetensors/dongjin-kr_ko-reranker safetensors/dongjin-kr_ko-reranker
+
+ENTRYPOINT ["top", "-b"]
+# docker build -t gguf_converter:local .  && docker run --gpus=all gguf_converter:local
+# docker build -t gguf_converter:local -f llm-chatbot/src/test/resources/gguf/Dockerfile .  && docker run --gpus=all gguf_converter:local
+# python llama.cpp/convert-hf-to-gguf.py
+
+

@@ -2,6 +2,7 @@ logging:
     level:
         root: info
         dev.langchain4j: debug
+        dev.langchain4j.model.ollama.OllamaClient: info
         dev.ai4j.openai4j: info
         com.example.chatbot: debug
         com.vaadin : info

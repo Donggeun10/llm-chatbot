@@ -9,13 +9,13 @@ langchain4j:
             timeout: 600000
         chat-model:
             base-url: http://172.27.6.8:11435
-            model-name: hf.co/LGAI-EXAONE/EXAONE-3.5-2.4B-Instruct-GGUF
+            model-name: hf.co/LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct-GGUF
             log-requests: true
             log-responses: true
             timeout: 600000
         streaming-chat-model:
             base-url: http://172.27.6.8:11435
-            model-name: hf.co/LGAI-EXAONE/EXAONE-3.5-2.4B-Instruct-GGUF
+            model-name: hf.co/LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct-GGUF
             log-requests: true
             log-responses: true
             timeout: 600000
