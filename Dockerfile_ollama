@@ -14,7 +14,7 @@ FROM nvidia/cuda:12.5.1-runtime-ubuntu22.04
 LABEL authors="leedg17"
 
 RUN apt update  \
-    && apt install -y vim nvidia-container-runtime
+    && apt install -y vim
 
 ## ubuntu
 RUN addgroup appgroup && adduser appuser && adduser appuser appgroup
@@ -29,6 +29,5 @@ RUN mkdir -p .ollama/models ollama
 COPY --from=prePhase --chown=appuser /home/appuser/ollama ollama
 
 ENV OLLAMA_HOST=0.0.0.0
-
 CMD ["serve"]
 ENTRYPOINT ["ollama"]

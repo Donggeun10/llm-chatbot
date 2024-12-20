@@ -1,4 +1,3 @@
-version: "3.8"
 name: chatbot-ollama-rest
 services:
     llm:
