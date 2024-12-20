@@ -28,7 +28,7 @@
     </scm>
     <properties>
         <java.version>21</java.version>
-        <langchain4j.version>0.35.0</langchain4j.version>
+        <langchain4j.version>0.36.2</langchain4j.version>
         <vaadin.version>24.5.8</vaadin.version>
     </properties>
     <dependencies>

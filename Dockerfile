@@ -7,11 +7,20 @@ COPY pom.xml .
 RUN mvn -B dependency:resolve
 
 # 2) source 복사 & package
-COPY src/ /build/src/
-RUN mvn package -DskipTests
+COPY src/ src/
+#COPY frontend/ frontend/
+#COPY node_modules/ node_modules/
+#COPY package.json ./package.json
+#COPY tsconfig.json ./tsconfig.json
+#COPY mvnw ./mvnw
+#COPY vite.config.ts ./vite.config.ts
+#COPY types.d.ts ./types.d.ts
+#RUN mvn package -DskipTests -Pproduction
+RUN mkdir -p target
+COPY target/chatbot.jar target/chatbot.jar
 RUN java -Djarmode=tools -jar target/chatbot.jar extract --destination application
 
-## run stage ubuntu
+## run stage ubuntu, due to langchain4j dependency
 FROM eclipse-temurin:21-jre-noble
 
 ## ubuntu

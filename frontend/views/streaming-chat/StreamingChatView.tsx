@@ -5,9 +5,10 @@ import {MessageInput, MessageList, MessageListItem} from "@vaadin/react-componen
 import {ChatService} from "../../generated/endpoints";
 
 
+const uuid = uuidv4();
+
 export default function StreamingChatView() {
     const [messages, setMessages] = useState<MessageListItem[]>([]);
-    const uuid = uuidv4();
 
     function addMessage(message: MessageListItem) {
         setMessages(messages => [...messages, message]);

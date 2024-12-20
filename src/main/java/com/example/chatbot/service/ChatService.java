@@ -1,5 +1,6 @@
 package com.example.chatbot.service;
 
+import com.example.chatbot.component.Assistant;
 import com.example.chatbot.component.StreamingAssistant;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.hilla.BrowserCallable;
@@ -20,8 +21,9 @@ public class ChatService {
     public Flux<String> chatStream(UUID user, String message) {
         Sinks.Many<String> sink = Sinks.many().unicast().onBackpressureBuffer();
 
-        streamingAssistant.chat(user, message)
+        streamingAssistant.streamChat(user, message)
             .onRetrieved(source -> log.info("Retrieved source: {}", source))
+            .onToolExecuted(tool -> log.info("Tool executed: {}", tool))
             .onNext(sink::tryEmitNext)
             .onComplete(c -> sink.tryEmitComplete())
             .onError(sink::tryEmitError)
