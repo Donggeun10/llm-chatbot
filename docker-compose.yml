@@ -28,9 +28,23 @@ services:
             - "9090:8080"
         environment:
             - SPRING_PROFILES_ACTIVE=exaone
+            - SPRING_DATA_REDIS_PORT=7379
             - APPLICATION_PDF=pdf
         deploy:
             resources:
                 reservations:
                     cpus: 2
                     memory: 2048m
+    redis:
+        image: redis:local
+        build:
+            context: ./
+            dockerfile: Dockerfile_redis
+        ports:
+            - "7379:6379"
+        restart: 'always'
+        deploy:
+            resources:
+                reservations:
+                    cpus: 1
+                    memory: 1024m

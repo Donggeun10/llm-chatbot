@@ -8,7 +8,8 @@ export const routes: RouteObject[] = [
     element: <MainLayout />,
     handle: { title: 'Main' },
     children: [
-      { path: '/', element: <StreamingChatView />, handle: { title: 'Streaming Chat' } },
+      { path: '/', element: <StreamingChatView />, handle: { title: 'Home' } },
+      { path: '/streaming', element: <StreamingChatView />, handle: { title: 'Streaming Chat' } },
     ],
   },
 ];

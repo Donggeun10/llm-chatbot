@@ -4,10 +4,16 @@ import {v4 as uuidv4} from 'uuid';
 import {MessageInput, MessageList, MessageListItem} from "@vaadin/react-components";
 import {ChatService} from "../../generated/endpoints";
 
+import {useLocation} from "react-router-dom";
 
-const uuid = uuidv4();
+const defaultMemoryId = uuidv4();
 
 export default function StreamingChatView() {
+
+    const location = useLocation();
+    const query = new URLSearchParams(location.search);
+    const memoryId = query.get('memoryId') || defaultMemoryId;
+
     const [messages, setMessages] = useState<MessageListItem[]>([]);
 
     function addMessage(message: MessageListItem) {
@@ -29,7 +35,7 @@ export default function StreamingChatView() {
         });
 
         let first = true;
-        ChatService.chatStream(uuid, message).onNext(chunk => {
+        ChatService.chatStream(memoryId, message).onNext(chunk => {
             if (first && chunk) {
                 addMessage({
                     text: chunk,

@@ -10,7 +10,7 @@ COPY ollama-0.5.1-linux-amd64.tgz ollama-linux-amd64.tgz
 RUN tar xvf ollama-linux-amd64.tgz -C ollama
 
 
-FROM nvidia/cuda:12.5.1-runtime-ubuntu22.04
+FROM nvidia/cuda:12.5.1-base-ubuntu22.04
 LABEL authors="leedg17"
 
 RUN apt update  \

@@ -13,14 +13,19 @@ export default function MainLayout() {
   return (
     <AppLayout primarySection="drawer">
       <div slot="drawer" className="flex flex-col justify-between h-full p-m">
-        <header className="flex flex-col gap-m">
-          <h1 className="text-l m-0">AI Chat 🤖</h1>
-          <nav>
-            <NavLink className={navLinkClasses} to="/">
-              Streaming Chat
-            </NavLink>
-          </nav>
-        </header>
+          <header className="flex flex-col gap-m">
+              <h1 className="text-l m-0">AI Chat 🤖</h1>
+              <nav>
+                  <NavLink className={navLinkClasses} to="/">
+                      Home
+                  </NavLink>
+              </nav>
+              <nav>
+                  <NavLink className={navLinkClasses} to="/streaming">
+                      Streaming Chat
+                  </NavLink>
+              </nav>
+          </header>
       </div>
 
       <DrawerToggle slot="navbar" aria-label="Menu toggle"></DrawerToggle>

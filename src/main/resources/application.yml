@@ -30,6 +30,10 @@ spring:
     threads:
         virtual:
             enabled: true
+    data:
+        redis:
+            host: 172.27.6.8
+            port: 6379
 
 application:
     pdf: src/test/resources/pdf
