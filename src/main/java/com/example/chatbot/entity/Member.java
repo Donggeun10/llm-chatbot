@@ -26,6 +26,6 @@ public class Member {
 
 
     public Member() {
-
+        // comment explaining why the method is empty
     }
 }

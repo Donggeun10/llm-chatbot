@@ -1,7 +1,5 @@
 package com.example.chatbot.component;
 
-import static dev.langchain4j.service.spring.AiServiceWiringMode.EXPLICIT;
-
 import dev.langchain4j.service.MemoryId;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;

@@ -1,6 +1,5 @@
 package com.example.chatbot.service;
 
-import com.example.chatbot.component.Assistant;
 import com.example.chatbot.component.StreamingAssistant;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.hilla.BrowserCallable;
