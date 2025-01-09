@@ -19,9 +19,11 @@ https://javaetmoi.com/2024/11/integrer-un-chatbot-dans-une-webapp-java-avec-lang
 
 ## 4. Docker container creation and execution command
 ```
+docker-compose build --no-cache
 docker build -t demo-chatbot:local .  && docker run -p 9090:8080  -e"SPRING_PROFILES_ACTIVE=exaone" -e"APPLICATION_PDF=pdf"  demo-chatbot:local
 docker build -t ollama-gpu:local -f Dockerfile_ollama . && docker run --gpus=all -p 11435:11434 ollama-gpu:local
-sdocker build -t trunk-pytorch:local -f Dockerfile_pytorch . && docker run --gpus=all trunk-pytorch:local
+docker build -t trunk-pytorch:local -f Dockerfile_pytorch . && docker run --gpus=all trunk-pytorch:local
 docker build -t trunk-pytorch:local -f Dockerfile_pytorch . && docker run -e TERM=xterm --tty  --gpus=all trunk-pytorch:local
-
+docker build -t redis:local -f Dockerfile_redis . && docker run -p 7379:6379 redis:local
+docker build -t llama_cpp:local -f ./Dockerfile_llama_cpp .  && docker run --gpus=all llama_cpp:local 
 ```

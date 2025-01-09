@@ -24,7 +24,7 @@ USER appuser
 
 WORKDIR /home/appuser
 ENV PATH="$PATH:/home/appuser/ollama/bin"
-RUN mkdir -p .ollama/models ollama
+RUN mkdir -p .ollama/models ollama safetensors
 
 COPY --from=prePhase --chown=appuser /home/appuser/ollama ollama
 
