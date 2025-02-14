@@ -60,7 +60,6 @@ services:
         hostname: 'llama_cpp'
         volumes:
             - ../ollama-model/safetensors:/home/appuser/safetensors
-        restart: 'always'
         deploy:
             resources:
                 reservations:

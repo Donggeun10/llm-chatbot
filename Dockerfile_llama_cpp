@@ -12,11 +12,7 @@ RUN addgroup appgroup && adduser appuser && adduser appuser appgroup
 USER appuser
 
 WORKDIR /home/appuser
-#
-#RUN mkdir -p safetensors llama.cpp
-#RUN git clone https://github.com/ggerganov/llama.cpp
-#COPY llama-cpp-b4435-bin-ubuntu-x64.zip llama.cpp.zip
-#RUN unzip llama.cpp.zip -d llama.cpp
+
 ENV PATH="$PATH:/app"
 ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app"
 

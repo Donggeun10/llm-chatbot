@@ -1,0 +1,1 @@
+FROM redis/redis-stack:7.2.0-v14-x86_64

@@ -1,4 +1,4 @@
-FROM alpine:3.20 AS prePhase
+FROM alpine:3.20 AS prephase
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
@@ -6,7 +6,7 @@ USER appuser
 WORKDIR /home/appuser
 
 RUN mkdir ollama
-COPY ollama-0.5.4-linux-amd64.tgz ollama-linux-amd64.tgz
+COPY ollama-0.5.5-linux-amd64.tgz ollama-linux-amd64.tgz
 RUN tar xvf ollama-linux-amd64.tgz -C ollama
 
 
@@ -26,7 +26,7 @@ WORKDIR /home/appuser
 ENV PATH="$PATH:/home/appuser/ollama/bin"
 RUN mkdir -p .ollama/models ollama safetensors
 
-COPY --from=prePhase --chown=appuser /home/appuser/ollama ollama
+COPY --from=prephase --chown=appuser /home/appuser/ollama ollama
 
 ENV OLLAMA_HOST=0.0.0.0
 CMD ["serve"]
