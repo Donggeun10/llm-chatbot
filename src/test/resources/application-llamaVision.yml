@@ -1,0 +1,21 @@
+# support tools (function calling)
+langchain4j:
+    ollama:
+        embedding-model:
+            base-url: http://172.27.6.8:11435
+            model-name: nomic-embed-text
+            log-requests: true
+            log-responses: true
+            timeout: 600000
+        chat-model:
+            base-url: http://172.27.6.8:11435
+            model-name: llama3-2-vision-11b-it-q4_K_M
+            log-requests: true
+            log-responses: false
+            timeout: 600000
+        streaming-chat-model:
+            base-url: http://172.27.6.8:11435
+            model-name: MiniCPM-V-2_6-Q4_K_M
+            log-requests: true
+            log-responses: false
+            timeout: 600000

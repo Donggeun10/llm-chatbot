@@ -12,6 +12,7 @@ services:
         volumes:
             - ../ollama-model/models:/home/appuser/.ollama/models
             - ../ollama-model/safetensors:/home/appuser/safetensors
+            - ../ollama-model/gguf:/home/appuser/gguf
         restart: 'always'
         deploy:
             resources:
@@ -51,19 +52,16 @@ services:
                 reservations:
                     cpus: 1
                     memory: 1024m
-    gguf:
-        image: llama_cpp:local
+    redis-stack:
+        image: redis-stack:local
         build:
             context: ./
-            dockerfile: Dockerfile_llama_cpp
-        container_name: 'llama_cpp'
-        hostname: 'llama_cpp'
-        volumes:
-            - ../ollama-model/safetensors:/home/appuser/safetensors
+            dockerfile: Dockerfile_redisStack
+        ports:
+            - "7380:6379"
+        restart: 'always'
         deploy:
             resources:
                 reservations:
-                    devices:
-                        - driver: nvidia
-                          count: all
-                          capabilities: [gpu]
+                    cpus: 1
+                    memory: 1024m

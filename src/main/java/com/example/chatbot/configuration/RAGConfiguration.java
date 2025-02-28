@@ -110,7 +110,7 @@ public class RAGConfiguration {
 
                 Prompt prompt = promptTemplate.apply(query.text());
 
-                AiMessage aiMessage = ollamaChatModel.generate(prompt.toUserMessage()).content();
+                AiMessage aiMessage = ollamaChatModel.chat(prompt.toUserMessage()).aiMessage();
                 log.debug("LLM decided: {}...:{}", aiMessage.text(), query.text());
                 if (aiMessage.text().toLowerCase().contains("no")) {
                     return emptyList();

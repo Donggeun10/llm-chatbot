@@ -23,8 +23,8 @@ public class ChatService {
         streamingAssistant.streamChat(user, message)
             .onRetrieved(source -> log.info("Retrieved source: {}", source))
             .onToolExecuted(tool -> log.info("Tool executed: {}", tool))
-            .onNext(sink::tryEmitNext)
-            .onComplete(c -> sink.tryEmitComplete())
+            .onPartialResponse(sink::tryEmitNext)
+            .onCompleteResponse(response -> sink.tryEmitNext(response.aiMessage().text()))
             .onError(sink::tryEmitError)
             .start();
 

@@ -36,7 +36,7 @@ spring:
             port: 7379
         redis-stack:
             host: 172.27.6.8
-            port: 8379
+            port: 7380
 
 application:
     pdf: src/test/resources/pdf

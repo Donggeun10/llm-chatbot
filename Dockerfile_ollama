@@ -6,7 +6,7 @@ USER appuser
 WORKDIR /home/appuser
 
 RUN mkdir ollama
-COPY ollama-0.5.5-linux-amd64.tgz ollama-linux-amd64.tgz
+COPY ollama-0.5.12-linux-amd64.tgz ollama-linux-amd64.tgz
 RUN tar xvf ollama-linux-amd64.tgz -C ollama
 
 
