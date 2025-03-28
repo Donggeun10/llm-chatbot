@@ -33,8 +33,7 @@ docker build -t ollama-gpu:local -f Dockerfile_ollama . && docker run --gpus=all
 docker build -t trunk-pytorch:local -f Dockerfile_pytorch . && docker run --gpus=all trunk-pytorch:local
 docker build -t trunk-pytorch:local -f Dockerfile_pytorch . && docker run -e TERM=xterm --tty  --gpus=all trunk-pytorch:local
 docker build -t redis:local -f Dockerfile_redis . && docker run -p 7379:6379 redis:local
-docker build -t llama_cpp:local -f ./Dockerfile_llama_cpp .  && docker run --gpus=all llama_cpp:local
-docker build -t redis-stack:local -f Dockerfile_redisStack . && docker run -p 8379:6379 redis-stack:local 
+docker build -t redis-stack:local -f Dockerfile_redisStack . && docker run -p 8379:6379 redis-stack:local
 ```
 
 ### 6. Additional information

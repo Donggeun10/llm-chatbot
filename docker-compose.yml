@@ -39,7 +39,7 @@ services:
                 reservations:
                     cpus: 2
                     memory: 2048m
-    redis:
+    redis-chat-memory:
         image: redis:local
         build:
             context: ./
@@ -52,7 +52,7 @@ services:
                 reservations:
                     cpus: 1
                     memory: 1024m
-    redis-stack:
+    redis-stack-vector-store:
         image: redis-stack:local
         build:
             context: ./
